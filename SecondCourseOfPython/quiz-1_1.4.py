@@ -1,17 +1,30 @@
-# Создаем пару словарей:
-#
-# namespaces = {'global': None}  # словарь с иерархией неймспейсов вида {неймспейс: предок неймспейса}
-# variables = {'global': set()}  # словарь с множеством переменных неймспейсов вида {неймспейс: {его переменные}}
-#
-# заполненный namespaces будет выглядеть как-то так: {'global': None, 'foo': 'global'... и т.д}, variables - {'global': {'a', 'b'...}, 'foo': {'c', 'e',...}... и т.д}
-#
-# 3 функции:
-#
-# create - пара строчек - создаем нэймспейс с родителем в нэймспейсах и создаем его же в variables
-#
-# add - одна строчка - добавляем переменную в нэймспейс в variables
-#
-# get - рекурсивно ищем переменную в множестве переменных нэймспейса (в variables), если нет - прыгаем в родителя - ищем там, если дошли до 'global' и нет там - возвращаем None, строчек 5-6.
-#
-# ну и команды - если строчка 'create' - вызываем create, 'get' - get и т.д. 6 строк не считая разбора ввода
-# kjhgf
+namespaces = {'global': None}
+variables = {'global': list()}
+
+count = int(input())
+
+def create(namespace, parent):
+    namespaces.update({namespace: parent})
+    variables.setdefault(namespace, list())
+
+def adde(namespace, var):
+    variables[namespace].append(var)
+
+def get(namespace, var):
+    if variables[namespace].count(var) == 1:
+        print(namespace)
+    else:
+        if namespaces.get(namespace) == None:
+            print('None')
+        else:
+            get(namespaces[namespace], var)
+
+
+for i in range(count):
+    i = str(input())
+    if i.split().count('create') == 1:
+        create(i.split()[1], i.split()[2])
+    if i.split().count('add') == 1:
+        adde(i.split()[1], i.split()[2])
+    if i.split().count('get') == 1:
+        get(i.split()[1], i.split()[2])
