@@ -16,7 +16,8 @@ try:
 #
 # input3 = browser.find_element_by_xpath('//input[contains(@class, "third") and @required]')
 # input3.send_keys("Qester")
-
+    # Такой метод сгодится лишь для проверки регистрации при заполнении
+    # исключительно обязательных полей
     elements = browser.find_elements_by_css_selector('input:required')
     for element in elements:
         element.send_keys('test')
