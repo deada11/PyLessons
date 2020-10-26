@@ -8,18 +8,21 @@ try:
     browser.get(link)
 
     # Ваш код, который заполняет обязательные поля
-    # input1 = browser.find_element_by_xpath('//input[contains(@class, "first") and @required]')
-    # input1.send_keys("Tester")
-    #
-    # input2 = browser.find_element_by_xpath('//input[contains(@class, "second") and @required]')
-    # input2.send_keys("Pester")
-    #
-    # input3 = browser.find_element_by_xpath('//input[contains(@class, "third") and @required]')
-    # input3.send_keys("Qester")
+    browser.find_element_by_xpath('//input[contains(@class, "first") and @required]').send_keys("Tester")
 
-    elements = browser.find_elements_by_css_selector('input:required')
-    for element in elements:
-        element.send_keys('test')
+    browser.find_element_by_xpath('//input[contains(@class, "second") and @required]').send_keys("Pester")
+
+    browser.find_element_by_xpath('//input[contains(@class, "third") and @required]').send_keys("Wester")
+
+    # Использование такой конструкции пропустит баг, т.к.
+    # выберет все элементы с тегом required, т.е. 2 штуки,
+    # заполнит их данными и нажмет кнопку.
+    # Таким образом, пропущенное поле Last Name останется незамеченным
+    #
+    # elements = browser.find_elements_by_css_selector('input:required')
+    # for element in elements:
+    #     element.send_keys('test')
+    #
 
     # Отправляем заполненную форму
     button = browser.find_element_by_css_selector("button.btn")
