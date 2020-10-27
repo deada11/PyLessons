@@ -4,7 +4,7 @@ import time
 browser = webdriver.Chrome()
 
 try:
-    link = "http://suninjuly.github.io/registration1.html"
+    link = "http://suninjuly.github.io/registration2.html"
     browser.get(link)
 
     # Ваш код, который заполняет обязательные поля
