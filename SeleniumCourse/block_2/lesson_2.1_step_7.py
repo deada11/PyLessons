@@ -22,5 +22,5 @@ try:
 
 
 finally:
-    time.sleep(10)
+    time.sleep(9)
     browser.quit()
