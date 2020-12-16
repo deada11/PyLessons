@@ -13,12 +13,12 @@ with open("urls.txt", 'r') as file:
 @pytest.fixture(scope="function")
 def browser():
     browser = webdriver.Chrome()
-    browser.implicitly_wait(5)
     yield browser
     browser.quit()
 
 @pytest.mark.parametrize('link', URLs)
 def test_found_secret_message(browser, link):
+    browser.implicitly_wait(5)
     browser.get(f"{link}")
     browser.find_element(By.XPATH, '//textarea').send_keys(str(math.log(int(time.time()))))
     browser.find_element_by_class_name('submit-submission').click()
