@@ -3,7 +3,7 @@ import time
 link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
 
 # ---- Первый метод проверки наличия кнопки добавления в корзину ----
-def test_button_add_to_basker_method_1(browser): # browser передается в тест как параметр
+def test_button_add_to_basket_method_1(browser): # browser передается в тест как параметр
     browser.get(link)
     time.sleep(30) # для проверок с различными языками (нужно ревьюеру)
     assert browser.find_element_by_class_name('btn-add-to-basket'), 'There is no button for add to basket!'
@@ -11,7 +11,7 @@ def test_button_add_to_basker_method_1(browser): # browser передается 
     # элемент не будет найден, assert получит None, тест упадет и будет выведено сообщение "There is no button!"
 
 # ---- Второй метод проверки наличия кнопки добавления в корзину ----
-# def test_button_add_to_basker_method_1(browser): # browser передается в тест как параметр
+# def test_button_add_to_basket_method_1(browser): # browser передается в тест как параметр
 #     browser.get(link)
 #     # time.sleep(30) # для проверок с различными языками (нужно ревьюеру)
 #     assert len(browser.find_element_by_class_name('btn-add-to-basket').text) > 0, \
