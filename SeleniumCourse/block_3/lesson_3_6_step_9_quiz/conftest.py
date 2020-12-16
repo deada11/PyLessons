@@ -11,8 +11,9 @@ def pytest_addoption(parser):
 def browser(request):
     browser_language = Options()
     browser_language.add_experimental_option(
-        'prefs',{'intl.accept_languages':
-            request.config.getoption('language')})  # присваиваем browser-language значение из командной строки
+        'prefs',
+        {'intl.accept_languages':
+             request.config.getoption('language')})  # присваиваем browser-language значение из командной строки
     browser = webdriver.Chrome(options=browser_language)
     yield browser
     browser.quit()
