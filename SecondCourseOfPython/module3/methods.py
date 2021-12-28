@@ -15,7 +15,7 @@
 # s = "image.png"
 # print(s.endswith(".png"))
 
-# s = "abacaba"
+# s = "cvcabacvcaba"
 # print(s.count("aba"))
 # print(s.count.__doc__)
 # print(s.find("aba"))

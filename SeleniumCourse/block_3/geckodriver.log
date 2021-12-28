@@ -75,3 +75,4 @@ JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691:
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1608144765211	geckodriver	INFO	Listening on 127.0.0.1:54219
