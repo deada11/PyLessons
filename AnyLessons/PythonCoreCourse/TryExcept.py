@@ -7,4 +7,3 @@ except (IndexError, ValueError):
     print("Wrong number")
 
 # print(fruits[num] if 0 <= num <= 7 else "Wrong number")
-
