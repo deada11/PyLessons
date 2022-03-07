@@ -5,4 +5,7 @@ contacts = {
     "Amy": ["340-999-213", "a@test.com"]
 }
 
-name = input()
+try:
+    print(contacts.get(input())[1])
+except TypeError:
+    print("Not found")
